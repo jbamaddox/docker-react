@@ -1,0 +1,13 @@
+#super permissins required
+sudo: required
+services:
+  - docker
+
+#Make sure commands are built to run our docker image
+before_install:
+  - docker build -t jeremybamaddox/docker-react -f Dockerfile.dev .
+
+#tell travis how to run our test suite
+##will watch for status codes
+script:
+  - docker run jeremybamaddox/docker-react npm run test -- --coverage
