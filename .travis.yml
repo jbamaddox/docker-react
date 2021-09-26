@@ -10,4 +10,4 @@ before_install:
 #tell travis how to run our test suite
 ##will watch for status codes
 script:
-  - docker run jeremybamaddox/docker-react npm run test -- --coverage
+  - docker run -e CI=true jeremybamaddox/docker-react npm run test -- --coverage
